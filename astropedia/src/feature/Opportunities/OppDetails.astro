@@ -1,0 +1,40 @@
+---
+//<!-- import styles from '@styles/OppDetails.module.css'; -->
+
+const styles = {
+  main: '',
+  header: '',
+  applyBtn: '',
+  date: '',
+  body: '',
+  footer: ''
+};
+export interface Props{
+  data : {
+    title:string
+  }
+}
+const { data } = Astro.props;
+---
+
+<div class={styles.main}>
+  <div class={styles.header}>
+    {data?.title && <h2>{data?.title}</h2>}
+    <button class={styles.applyBtn}>Apply Now</button>
+  </div>
+  <span class={styles.date}>{data?.date}</span>
+
+  <div class={styles.body}>
+    <p>
+      corporis atque debitis. Aut provident inventore corrupti, libero vel
+      maiores, ipsam, error ratione molestias adipisci ullam expedita harum.
+    </p>
+  </div>
+  <div class={styles.footer}>
+    <button class={styles.applyBtn}>Apply Now</button>
+    <a href='#'>
+      Explore More Opportunities
+      <span class='i-mdi:chevron-right h-6 w-6'></span>
+    </a>
+  </div>
+</div>

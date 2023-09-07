@@ -1,0 +1,30 @@
+---
+// import styles from '@styles/oppCard.module.css';
+
+
+// export interface Props {
+//   title: string;
+//   date: string;
+//   image: string;
+// }
+
+// const { title, date, image } = Astro.props;
+
+const styles={
+  main:'', picture:'',
+  cardInfo:'', title:'', link:''
+}
+---
+
+<div class={styles.main}>
+  <div class={styles.picture}>
+    <h2>Image</h2>
+  </div>
+  <div class={styles.cardInfo}>
+    <div class={styles.title}>
+      <h3>Title</h3>
+      <span>Date Added -</span>
+    </div>
+    <a class={styles.link}>Apply Now</a>
+  </div>
+</div>
