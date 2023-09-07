@@ -1,0 +1,47 @@
+---
+// import styles from './contributor.module.css';
+
+const styles = {
+  card:'', profile:'',
+  content:'', text:'', githubIcon:'', githubName:''
+}
+
+export interface Props {
+  image: string;
+  title: string;
+  commits: number;
+  profile: string;
+  githubUsername: string;
+}
+
+const { image, title, commits, profile, githubUsername } = Astro.props;
+const x = 'commit' + (commits <= 1 ? '' : 's');
+
+const openContributorProfile = (url: string) => window.open(url, '_blank');
+---
+
+<div class={styles.card} onclick="openContributorProfile(profile)"}>
+  <img
+    loading='lazy'
+    class={styles.profile}
+    src={`https://images.weserv.nl/?output=webp&url=${image}`}
+    alt='Contributor'
+  />
+  <div class={styles.content}>
+    <h1 class={styles.text}>{title}</h1>
+    <p>
+      {commits}
+      {x}
+    </p>
+  </div>
+  <div class={styles.githubIcon}>
+    <a
+      href={`https://github.com/${githubUsername}`}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
+      <span class="i-mdi:github h-31 w-31" />
+    </a>
+    <span class={styles.githubName}>Github</span>
+  </div>
+</div>
