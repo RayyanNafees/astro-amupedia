@@ -1,0 +1,70 @@
+---
+// import styles from './blogcard.module.scss';
+const styles = {
+  cover: '',
+  image: '',
+  title: '',
+  author: '',
+  info: '',
+  likes: '',
+  blogfooter: '',
+  icon: '',
+  comments: '',
+  likesIcon: '',
+  commentsIcon: ''
+};
+const dataScieneImg = '/blog/dataScience';
+// import Image from 'astro:image';
+const Image = 'img';
+export interface Props {
+  id: string | number;
+  image: string;
+  comments: string;
+  likes: number;
+  title: string;
+  author: string;
+}
+
+const { id, image, comments, likes, title, author } = Astro.props;
+---
+
+<a href={`/blog/${id || ''}`} passHref>
+  <div class={styles.cover}>
+    <div class={styles.image}>
+      <Image
+        loading='lazy'
+        src={image}
+        alt='data-science-amupedia-blogs'
+        layout='responsive'
+        width='1500'
+        height='1000'
+      />
+    </div>
+    <h3 class={styles.title}>
+      {title}
+    </h3>
+    <div class={styles.blogfooter}>
+      <span class={styles.author}>{author}</span>
+      <div class={styles.info}>
+        <span class={styles.likes}>
+          {likes}
+          <span
+            class:list={[
+              'i-mdi:thumb-up-outline',
+              styles.icon,
+              styles.likesIcon
+            ]}></span>
+        </span>
+        <span class={styles.comments}>
+          {comments}
+          <span
+            class:list={[
+              'i-mdi:comment-outline',
+              styles.icon,
+              styles.commentsIcon
+            ]}></span>
+        </span>
+      </div>
+    </div>
+  </div>
+</a>
